@@ -103,7 +103,7 @@ input[type=range]::-webkit-slider-thumb {
 
 }
 
-#submit-btn {
+#submit-btn, .chart-container button {
   background-color: #ff813d;
   border: solid 0.125rem #ff813d;
   border-radius: 1.9375rem;
@@ -122,6 +122,11 @@ input[type=range]::-webkit-slider-thumb {
   padding: 0.625rem 1.875rem;
 }
 
+.chart-container button {
+  display: block;
+  margin: 0 auto;
+}
+
 #submit-btn:hover, #submit-btn:focus, #submit-btn:active {
   background-color: #1F1F1F;
   border-color: #1F1F1F;
@@ -130,6 +135,7 @@ input[type=range]::-webkit-slider-thumb {
 
 .chart-container h2 {
   text-align: center;
+  margin: 3%;
 }
 
 .chart-container h2 em {

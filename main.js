@@ -174,7 +174,7 @@ async function createCharts(results) {
 						afterLabel: function (context) {
 							const percent =
 								results[context.dataIndex].increasePercentage;
-							return `${percent}%`;
+							return `${percent}% Revenue Growth`;
 						},
 					},
 				},
@@ -229,14 +229,27 @@ async function createCharts(results) {
 	});
 }
 
-function display3YrTotal(total) {
-	const chartContainer = document.querySelector('.chart-container');
-	const paragraph = document.createElement('h2');
-	paragraph.innerHTML = `Total 3 Year Return: <em>$${Math.round(
-		+total
-	).toLocaleString()}</em>`;
-	chartContainer.appendChild(paragraph);
+function showTotalAndDownloadBtn(total) {
+	const currentTotalLine = document.querySelector('.chart-container h2');
+	if (currentTotalLine) {
+		currentTotalLine.innerHTML = `Total 3 Year Return: <em>$${Math.round(
+			+total
+		).toLocaleString()}</em>`;
+	} else {
+		const chartContainer = document.querySelector('.chart-container');
+		const totalLine = document.createElement('h2');
+		totalLine.innerHTML = `Total 3 Year Return: <em>$${Math.round(
+			+total
+		).toLocaleString()}</em>`;
+		chartContainer.appendChild(totalLine);
+
+		const downloadBtn = document.createElement('button');
+		downloadBtn.innerText = 'Download Your Value Brief';
+		chartContainer.appendChild(downloadBtn);
+	}
 }
+
+function showDownloadBtn() {}
 
 document
 	.getElementById('benefits-form')
@@ -256,5 +269,5 @@ document
 		console.log(results, threeYearTotal);
 
 		createCharts(results);
-		display3YrTotal(threeYearTotal);
+		showTotalAndDownloadBtn(threeYearTotal);
 	});
