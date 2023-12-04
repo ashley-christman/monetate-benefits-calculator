@@ -131,102 +131,108 @@ function getData(form) {
 
 async function createCharts(results) {
 	Chart.defaults.font.family = "'Montserrat', 'sans-serif'";
-	new Chart(document.getElementById('incrementalRevenue'), {
-		type: 'bar',
-		data: {
-			labels: ['Year 1', 'Year 2', 'Year 3'],
-			datasets: [
-				{
-					label: 'Incremental Revenue',
-					data: results.map((row) => row.incrementalRevenue),
-					backgroundColor: ['#FFCB53', '#F36B21', '#8566AB'],
-				},
-			],
-		},
-		options: {
-			plugins: {
-				title: {
-					display: true,
-					text: 'Incremental Revenue',
-				},
-				colors: {
-					enabled: false,
-				},
-				legend: {
-					display: false,
-				},
-				tooltip: {
-					callbacks: {
-						label: function (context) {
-							let label = context.dataset.label || '';
+	const incrementalRevenueChart = new Chart(
+		document.getElementById('incrementalRevenue'),
+		{
+			type: 'bar',
+			data: {
+				labels: ['Year 1', 'Year 2', 'Year 3'],
+				datasets: [
+					{
+						label: 'Incremental Revenue',
+						data: results.map((row) => row.incrementalRevenue),
+						backgroundColor: ['#FFCB53', '#F36B21', '#8566AB'],
+					},
+				],
+			},
+			options: {
+				plugins: {
+					title: {
+						display: true,
+						text: 'Incremental Revenue',
+					},
+					colors: {
+						enabled: false,
+					},
+					legend: {
+						display: false,
+					},
+					tooltip: {
+						callbacks: {
+							label: function (context) {
+								let label = context.dataset.label || '';
 
-							if (label) {
-								label += ': ';
-							}
-							if (context.parsed.y !== null) {
-								label += new Intl.NumberFormat('en-US', {
-									style: 'currency',
-									currency: 'USD',
-								}).format(context.parsed.y);
-							}
-							return label;
-						},
-						afterLabel: function (context) {
-							const percent =
-								results[context.dataIndex].increasePercentage;
-							return `${percent}% Revenue Growth`;
+								if (label) {
+									label += ': ';
+								}
+								if (context.parsed.y !== null) {
+									label += new Intl.NumberFormat('en-US', {
+										style: 'currency',
+										currency: 'USD',
+									}).format(context.parsed.y);
+								}
+								return label;
+							},
+							afterLabel: function (context) {
+								const percent =
+									results[context.dataIndex].increasePercentage;
+								return `${percent}% Revenue Growth`;
+							},
 						},
 					},
 				},
 			},
-		},
-	});
+		}
+	);
 
-	new Chart(document.getElementById('totalRevenue'), {
-		type: 'bar',
-		data: {
-			labels: ['Year 1', 'Year 2', 'Year 3'],
-			datasets: [
-				{
-					label: 'Total Revenue',
-					data: results.map((row) => row.annualRevenue),
-					backgroundColor: ['#FFCB53', '#F36B21', '#8566AB'],
-				},
-			],
-		},
-		options: {
-			plugins: {
-				title: {
-					display: true,
-					text: 'Total Revenue',
-				},
-				colors: {
-					enabled: false,
-				},
-				legend: {
-					display: false,
-				},
-				tooltip: {
-					callbacks: {
-						label: function (context) {
-							let label = context.dataset.label || '';
+	const totalRevenueChart = new Chart(
+		document.getElementById('totalRevenue'),
+		{
+			type: 'bar',
+			data: {
+				labels: ['Year 1', 'Year 2', 'Year 3'],
+				datasets: [
+					{
+						label: 'Total Revenue',
+						data: results.map((row) => row.annualRevenue),
+						backgroundColor: ['#FFCB53', '#F36B21', '#8566AB'],
+					},
+				],
+			},
+			options: {
+				plugins: {
+					title: {
+						display: true,
+						text: 'Total Revenue',
+					},
+					colors: {
+						enabled: false,
+					},
+					legend: {
+						display: false,
+					},
+					tooltip: {
+						callbacks: {
+							label: function (context) {
+								let label = context.dataset.label || '';
 
-							if (label) {
-								label += ': ';
-							}
-							if (context.parsed.y !== null) {
-								label += new Intl.NumberFormat('en-US', {
-									style: 'currency',
-									currency: 'USD',
-								}).format(context.parsed.y);
-							}
-							return label;
+								if (label) {
+									label += ': ';
+								}
+								if (context.parsed.y !== null) {
+									label += new Intl.NumberFormat('en-US', {
+										style: 'currency',
+										currency: 'USD',
+									}).format(context.parsed.y);
+								}
+								return label;
+							},
 						},
 					},
 				},
 			},
-		},
-	});
+		}
+	);
 }
 
 function showTotalAndDownloadBtn(total) {
@@ -267,6 +273,18 @@ document
 
 		const results = [lowEngagement, medEngagement, highEngagement];
 		console.log(results, threeYearTotal);
+
+		const incrementalRevenueCanvas = Chart.getChart('incrementalRevenue');
+		const totalRevenueCanvas = Chart.getChart('totalRevenue');
+
+		function destroyCanvas(chart) {
+			if (chart != undefined) {
+				chart.destroy();
+			}
+		}
+
+		destroyCanvas(incrementalRevenueCanvas);
+		destroyCanvas(totalRevenueCanvas);
 
 		createCharts(results);
 		showTotalAndDownloadBtn(threeYearTotal);
