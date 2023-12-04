@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monetate Benefits Calculator</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="calculator">
+    <div class="title-container">
+      <h1>Monetate Benefits Calculator</h1>
+      <h3>How could your revenue be impacted by implementing a personalization solution over the next 3 years? Enter
+        your
+        company's stats to find out!</h3>
+    </div>
+    <div class="content-container">
+      <div class="form-container">
+        <form id="benefits-form" action="">
+          <div class="input-container">
+            <label class="input-label" id="session-label" for="session-text">Annual Session Count</label>
+            <input type="text" name="sessions" id="session-text" class="input" aria-labelledby="session-label" required>
+            <div class="range-container">
+              <div class="range-label min">50,000</div>
+              <div class="range-slider">
+                <input type="range" id="session-range" min="50000" max="3000000000" step="1000" class="input"
+                  aria-labelledby="session-label" required>
+              </div>
+              <div class="range-label max">3 Billion</div>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <label class="input-label" id="bounce-label" for="bounce-text">Bounce Rate</label>
+            <input type="number" min="1" max="100" step="1" name="bounce" id="bounce-text" class="input"
+              aria-labelledby="bounce-label" required>
+            <div class="range-container">
+              <div class="range-label min">1%</div>
+              <div class="range-slider">
+                <input type="range" id="bounce-range" min="1" max="100" step="1" class="input"
+                  aria-labelledby="bounce-label">
+              </div>
+              <div class="range-label max">100%</div>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <label class="input-label" id="conversion-label" for="conversion-text">Conversion Rate</label>
+            <input type="number" min="1" max="100" step="1" name="conversion" id="conversion-text" class="input"
+              aria-labelledby="conversion-label" required>
+            <div class="range-container">
+              <div class="range-label min">1%</div>
+              <div class="range-slider">
+                <input type="range" id="conversion-range" min="1" max="100" step="1" class="input"
+                  aria-labelledby="conversion-label">
+              </div>
+              <div class="range-label max">100%</div>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <label class="input-label" id="aov-label" for="aov-text">Current AOV</label>
+            <input type="text" name="aov" id="aov-text" class="input" aria-labelledby="aov-label">
+            <div class="range-container">
+              <div class="range-label min">$40</div>
+              <div class="range-slider">
+                <input type="range" id="aov-range" min="1" max="20000" step="10" class="input"
+                  aria-labelledby="aov-label">
+              </div>
+              <div class="range-label max">$1,000</div>
+            </div>
+          </div>
+
+          <div class="input-container">
+            <input type="submit" id="submit-btn" value="Calculate" />
+          </div>
+
+        </form>
+      </div>
+      <div class="chart-container">
+        <canvas id="incrementalRevenue"></canvas>
+        <canvas id="totalRevenue"></canvas>
+      </div>
+    </div>
+
+
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
