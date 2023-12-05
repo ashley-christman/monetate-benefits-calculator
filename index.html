@@ -7,7 +7,7 @@
   <title>Monetate Benefits Calculator</title>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -42,12 +42,12 @@
 
           <div class="input-container">
             <label class="input-label" id="bounce-label" for="bounce-text">Bounce Rate</label>
-            <input type="number" min="1" max="100" step="1" name="bounce" id="bounce-text" class="input"
+            <input type="number" min="1" max="100" step="0.01" name="bounce" id="bounce-text" class="input"
               aria-labelledby="bounce-label" required>
             <div class="range-container">
               <div class="range-label min">1%</div>
               <div class="range-slider">
-                <input type="range" id="bounce-range" min="1" max="100" step="1" class="input"
+                <input type="range" id="bounce-range" min="1" max="100" step="0.25" class="input"
                   aria-labelledby="bounce-label">
               </div>
               <div class="range-label max">100%</div>
@@ -56,12 +56,12 @@
 
           <div class="input-container">
             <label class="input-label" id="conversion-label" for="conversion-text">Conversion Rate</label>
-            <input type="number" min="1" max="50" step="1" name="conversion" id="conversion-text" class="input"
+            <input type="number" min="1" max="50" step="0.01" name="conversion" id="conversion-text" class="input"
               aria-labelledby="conversion-label" required>
             <div class="range-container">
               <div class="range-label min">1%</div>
               <div class="range-slider">
-                <input type="range" id="conversion-range" min="1" max="50" step="1" class="input"
+                <input type="range" id="conversion-range" min="1" max="50" step="0.25" class="input"
                   aria-labelledby="conversion-label">
               </div>
               <div class="range-label max">100%</div>
