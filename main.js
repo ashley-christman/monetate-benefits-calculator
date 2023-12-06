@@ -86,10 +86,11 @@ const high = {
 };
 
 const calculateIncrementalRevenue = (data, engagement) => {
+	debugger;
 	const { aov, bounce, conversion, sessions } = data;
 	const { impact, influencedSessions } = engagement;
 
-	const engagedSessions = sessions * bounce;
+	const engagedSessions = sessions * (1 - bounce);
 	const saleCount = engagedSessions * conversion;
 	const annualRevenue = saleCount * aov;
 
