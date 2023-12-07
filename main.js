@@ -86,7 +86,6 @@ const high = {
 };
 
 const calculateIncrementalRevenue = (data, engagement) => {
-	debugger;
 	const { aov, bounce, conversion, sessions } = data;
 	const { impact, influencedSessions } = engagement;
 
@@ -250,13 +249,11 @@ function showTotalAndDownloadBtn(total) {
 		).toLocaleString()}</em>`;
 		chartContainer.appendChild(totalLine);
 
-		const downloadBtn = document.createElement('button');
-		downloadBtn.innerText = 'Download Your Value Brief';
+		const downloadBtn = document.createElement('a');
+		downloadBtn.innerText = 'Request More Information';
 		chartContainer.appendChild(downloadBtn);
 	}
 }
-
-function showDownloadBtn() {}
 
 document
 	.getElementById('benefits-form')

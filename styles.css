@@ -103,7 +103,7 @@ input[type=range]::-webkit-slider-thumb {
 
 }
 
-#submit-btn, .chart-container button {
+#submit-btn, .chart-container a {
   background-color: #ff813d;
   border: solid 0.125rem #ff813d;
   border-radius: 1.9375rem;
@@ -122,12 +122,14 @@ input[type=range]::-webkit-slider-thumb {
   padding: 0.625rem 1.875rem;
 }
 
-.chart-container button {
+.chart-container a {
   display: block;
+  width: 50%;
   margin: 0 auto;
+  text-align: center;
 }
 
-#submit-btn:hover, #submit-btn:focus, #submit-btn:active {
+#submit-btn:hover, #submit-btn:focus, #submit-btn:active, .chart-container a:hover, .chart-container a:focus, .chart-container a:active {
   background-color: #1F1F1F;
   border-color: #1F1F1F;
   color: white;
