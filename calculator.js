@@ -286,8 +286,6 @@ document
 		).toFixed(2);
 
 		const results = [lowEngagement, medEngagement, highEngagement];
-		console.log(results, threeYearTotal);
-
 		const incrementalRevenueCanvas = Chart.getChart('incrementalRevenue');
 		const totalRevenueCanvas = Chart.getChart('totalRevenue');
 
