@@ -72,7 +72,7 @@
             <label class="input-label" id="aov-label" for="aov-text">Current AOV</label>
             <input type="text" name="aov" id="aov-text" class="input" aria-labelledby="aov-label">
             <div class="range-container">
-              <div class="range-label min">$1</div>
+              <div class="range-label min">$1 </div>
               <div class="range-slider">
                 <input type="range" id="aov-range" min="1" max="20000" step="10" class="input"
                   aria-labelledby="aov-label">
@@ -80,6 +80,25 @@
               <div class="range-label max">$20,000</div>
             </div>
           </div>
+
+          <!-- <div class="input-container">
+            <label class="input-label" id="industry-label" for="industry">Industry</label>
+            <select name="industry" id="industry" required>
+              <option value="" disabled selected>Select an Option</option>
+              <option value="apparel">Apparel & Accessories</option>
+              <option value="home">Home Improvement</option>
+              <option value="furniture">Home Goods / Furniture</option>
+              <option value="food">Food & Beverage</option>
+              <option value="b2b">B2B</option>
+              <option value="sporting">Sporting Equipment</option>
+              <option value="travel">Travel</option>
+              <option value="finance">Finance & Insurance</option>
+              <option value="auto">Automotive</option>
+              <option value="jewelry">Jewelry & Accessories</option>
+              <option value="health">Health & Beauty</option>
+              <option value="other">Other</option>
+            </select>
+          </div> -->
 
           <div class="input-container">
             <button type="submit" id="submit-btn" value="Calculate">Calculate</button>
@@ -91,10 +110,6 @@
         <canvas id="incrementalRevenue"></canvas>
         <canvas id="totalRevenue"></canvas>
       </div>
-
-      <!-- <script src="//go.monetate.com/js/forms2/js/forms2.min.js"></script>
-      <form id="mktoForm_1029"></form>
-      <script>MktoForms2.loadForm("//go.monetate.com", "565-BHS-080", 1029, function (form) { MktoForms2.lightbox(form).show(); });</script> -->
 
       <div class="contact-container">
         <div class="lightbox">
@@ -112,7 +127,7 @@
 
     </div>
 
-
+    <small>* All numbers provided are estimates only. Many different factors go into eCommerce growth.</small>
   </div>
   <script src="main.js"></script>
 </body>

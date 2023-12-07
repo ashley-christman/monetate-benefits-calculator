@@ -48,14 +48,14 @@ inputs.forEach((e) => e.addEventListener('input', updateInputs));
 // Calculator Logic
 const low = {
 	influencedSessions: {
-		bounceRate: 0.2,
-		conversionRate: 0.05,
-		aov: 0.05,
+		bounceRate: 0.15,
+		conversionRate: 0.08,
+		aov: 0.08,
 	},
 	impact: {
 		bounceRate: 0.2,
-		conversionRate: 0.25,
-		aov: 0.25,
+		conversionRate: 0.15,
+		aov: 0.15,
 	},
 };
 
@@ -66,22 +66,22 @@ const medium = {
 		aov: 0.1,
 	},
 	impact: {
-		bounceRate: 0.3,
-		conversionRate: 0.5,
-		aov: 0.25,
+		bounceRate: 0.25,
+		conversionRate: 0.22,
+		aov: 0.22,
 	},
 };
 
 const high = {
 	influencedSessions: {
 		bounceRate: 0.3,
-		conversionRate: 0.15,
-		aov: 0.15,
+		conversionRate: 0.2,
+		aov: 0.2,
 	},
 	impact: {
-		bounceRate: 0.35,
-		conversionRate: 0.6,
-		aov: 0.4,
+		bounceRate: 0.3,
+		conversionRate: 0.25,
+		aov: 0.25,
 	},
 };
 
@@ -106,18 +106,6 @@ const calculateIncrementalRevenue = (data, engagement) => {
 	const newAnnualRevenue = newSaleCount * newAov;
 	const incrementalRevenue = newAnnualRevenue - annualRevenue;
 	const increasePercentage = (newAnnualRevenue / annualRevenue - 1) * 100;
-
-	console.log({
-		bounce: (newBounceRate * 100).toFixed(2),
-		engagedSessions: newEngagedSessions,
-		netConversion: (newNetConversion * 100).toFixed(2),
-		saleCount: newSaleCount,
-		grossConversion: (grossConversion * 100).toFixed(2),
-		aov: newAov.toFixed(2),
-		annualRevenue: newAnnualRevenue.toFixed(2),
-		incrementalRevenue: incrementalRevenue.toFixed(2),
-		increasePercentage: increasePercentage.toFixed(2),
-	});
 
 	return {
 		bounce: (newBounceRate * 100).toFixed(2),
