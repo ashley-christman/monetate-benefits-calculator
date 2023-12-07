@@ -110,7 +110,7 @@ const calculateIncrementalRevenue = (data, engagement) => {
 	return {
 		bounce: (newBounceRate * 100).toFixed(2),
 		engagedSessions: newEngagedSessions,
-		netConversion: (netConversion * 100).toFixed(2),
+		netConversion: (newNetConversion * 100).toFixed(2),
 		saleCount: newSaleCount,
 		grossConversion: (grossConversion * 100).toFixed(2),
 		aov: newAov.toFixed(2),
