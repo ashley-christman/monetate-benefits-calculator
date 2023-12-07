@@ -90,21 +90,34 @@ const calculateIncrementalRevenue = (data, engagement) => {
 	const { impact, influencedSessions } = engagement;
 
 	const engagedSessions = sessions * (1 - bounce);
-	const saleCount = engagedSessions * conversion;
+	const saleCount = sessions * conversion;
+	const netConversion = saleCount / engagedSessions;
 	const annualRevenue = saleCount * aov;
 
 	const newBounceRate =
 		bounce * (1 - impact.bounceRate * influencedSessions.bounceRate);
 	const newEngagedSessions = (1 - newBounceRate) * sessions;
-	const netConversion =
-		conversion *
+	const newNetConversion =
+		netConversion *
 		(1 + impact.conversionRate * influencedSessions.conversionRate);
-	const newSaleCount = newEngagedSessions * netConversion;
+	const newSaleCount = newEngagedSessions * newNetConversion;
 	const grossConversion = newSaleCount / sessions;
 	const newAov = aov * (1 + impact.aov * influencedSessions.aov);
 	const newAnnualRevenue = newSaleCount * newAov;
 	const incrementalRevenue = newAnnualRevenue - annualRevenue;
 	const increasePercentage = (newAnnualRevenue / annualRevenue - 1) * 100;
+
+	console.log({
+		bounce: (newBounceRate * 100).toFixed(2),
+		engagedSessions: newEngagedSessions,
+		netConversion: (newNetConversion * 100).toFixed(2),
+		saleCount: newSaleCount,
+		grossConversion: (grossConversion * 100).toFixed(2),
+		aov: newAov.toFixed(2),
+		annualRevenue: newAnnualRevenue.toFixed(2),
+		incrementalRevenue: incrementalRevenue.toFixed(2),
+		increasePercentage: increasePercentage.toFixed(2),
+	});
 
 	return {
 		bounce: (newBounceRate * 100).toFixed(2),
