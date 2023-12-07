@@ -1,5 +1,6 @@
 * {
   font-family: "montserrat", sans-serif;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -40,18 +41,19 @@ h3 {
   width: 50%;
 }
 
-.input-container {
+.input-container{
   margin-bottom: 2rem;
 }
 
-.input-label {
+.input-label, .mktoLabel {
   display:block;
   font-weight: 700;
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
 }
 
-input[type="text"], input[type="number"] {
+
+input[type="text"], input[type="number"], .mktoField {
   width: 90%;
   margin-bottom: 0.5rem;
   background-color: #fff;
@@ -103,7 +105,7 @@ input[type=range]::-webkit-slider-thumb {
 
 }
 
-#submit-btn, .chart-container a {
+#submit-btn, .chart-container a, button.mktoButton {
   background-color: #ff813d;
   border: solid 0.125rem #ff813d;
   border-radius: 1.9375rem;
@@ -122,6 +124,10 @@ input[type=range]::-webkit-slider-thumb {
   padding: 0.625rem 1.875rem;
 }
 
+#submit-btn:after, .chart-container a:after, button.mktoButton:after {
+  content: "\00a0\203a";
+}
+
 .chart-container a {
   display: block;
   width: 50%;
@@ -129,7 +135,7 @@ input[type=range]::-webkit-slider-thumb {
   text-align: center;
 }
 
-#submit-btn:hover, #submit-btn:focus, #submit-btn:active, .chart-container a:hover, .chart-container a:focus, .chart-container a:active {
+#submit-btn:hover, #submit-btn:focus, #submit-btn:active, .chart-container a:hover, .chart-container a:focus, .chart-container a:active, button.mktoButton:hover, button.mktoButton:focus, button.mktoButton:active {
   background-color: #1F1F1F;
   border-color: #1F1F1F;
   color: white;
@@ -144,4 +150,132 @@ input[type=range]::-webkit-slider-thumb {
   font-style: normal;
   font-weight: 800;
   color: #017B84;
+}
+
+.contact-container {
+  z-index: 11000;
+  background-color: rgba(0,0,0,.4);
+  pointer-events: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition-property: background-color;
+}
+
+.lightbox {
+  z-index: 11001;
+  width: 640px !important;
+  left: 30% !important;
+  padding: 0;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,.16);
+  overflow-y: auto;
+  height: auto;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  max-height: 90%;
+  transform: scale(1);
+  background-color: #f5f5f5;
+  border-radius: 0.1875rem;
+}
+
+.lightbox-header{
+  padding: 1.25rem 3.125rem !important;
+  background-color: #f4f4f4;
+  color: #333;
+  font-weight: 700;
+  border-bottom: 1px solid #c8c8c8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+#closeBtn {
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.marketo-container {
+  width: 80%;
+  margin: 5% auto;
+}
+
+#mktoForm_1029 {
+  width: 100% !important;
+}
+.mktoFormRow, .mktoFormCol, .mktoField, .mktoFieldWrap {
+  width: 100% !important;
+}
+
+.mktoFormRow {
+  margin-bottom: 1rem;
+}
+
+.mktoLabel {
+  display:block;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.mktoLabel, .mktoForm {
+  float: none !important;
+  width:100% !important
+}
+
+input[type=checkbox].mktoField {
+  height: auto;
+}
+
+label a {
+  font-weight: 600;
+  color: #8867b1;
+  text-decoration: none;
+}
+
+.mktoCheckboxList.mktoHasWidth {
+  width: 100% !important;
+}
+
+.mktoCheckboxList > label {
+  width: 100% !important;
+  margin-left: 1.5em;
+  margin-top: 0.1em;
+  margin-bottom: 0.3em;
+  line-height: 1.2em;
+  display: block;
+  min-height: 12px;
+}
+
+#mktoCheckbox_589_0 {
+  width: 1rem !important;
+  margin-top: 0.3125rem !important;
+}
+
+#LblmktoCheckbox_589_0 {
+  font-size: 1.125rem;
+  color: #1f1f1f;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.mktoButtonWrap.mktoNative {
+  margin: 0 !important;
+}
+
+.mktoButtonRow {
+  width: 100% !important;
+  text-align: center !important;
+  margin-top: 1.875rem !important;
+  display: inline-block;
+  position: relative;
+}
+
+.mktoGutter{
+  width:0 !important;
 }

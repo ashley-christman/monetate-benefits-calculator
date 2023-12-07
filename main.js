@@ -235,7 +235,7 @@ async function createCharts(results) {
 	);
 }
 
-function showTotalAndDownloadBtn(total) {
+function showTotalAndInfoBtn(total) {
 	const currentTotalLine = document.querySelector('.chart-container h2');
 	if (currentTotalLine) {
 		currentTotalLine.innerHTML = `Total 3 Year Return: <em>$${Math.round(
@@ -249,9 +249,24 @@ function showTotalAndDownloadBtn(total) {
 		).toLocaleString()}</em>`;
 		chartContainer.appendChild(totalLine);
 
-		const downloadBtn = document.createElement('a');
-		downloadBtn.innerText = 'Request More Information';
-		chartContainer.appendChild(downloadBtn);
+		const infoBtn = document.createElement('a');
+		infoBtn.id = 'infoBtn';
+		infoBtn.innerText = 'Request More Info';
+		chartContainer.appendChild(infoBtn);
+
+		document
+			.getElementById('infoBtn')
+			.addEventListener('click', function (e) {
+				const contactForm = document.querySelector('.contact-container');
+				contactForm.style.display = 'flex';
+			});
+
+		document
+			.getElementById('closeBtn')
+			.addEventListener('click', function (e) {
+				const contactForm = document.querySelector('.contact-container');
+				contactForm.style.display = 'none';
+			});
 	}
 }
 
@@ -285,5 +300,5 @@ document
 		destroyCanvas(totalRevenueCanvas);
 
 		createCharts(results);
-		showTotalAndDownloadBtn(threeYearTotal);
+		showTotalAndInfoBtn(threeYearTotal);
 	});
